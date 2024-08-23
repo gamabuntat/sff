@@ -55,10 +55,28 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      fontSize: {
+        xs: 'var(--fs--2)',
+        sm: 'var(--fs--1)',
+        base: 'var(--fs-0)',
+        lg: 'var(--fs-1)',
+        xl: 'var(--fs-2)',
+        '2xl': 'var(--fs-3)',
+        '3xl': 'var(--fs-4)',
+        '4xl': 'var(--fs-5)',
+
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      width: {
+        lh: '1lh',
+        em: '1em',
+      },
+      boxShadow: {
+        default: 'var(--box-shadow-default)',
       },
       keyframes: {
         'accordion-down': {

@@ -34,7 +34,18 @@
     --ring: 222.2 84% 4.9%;
     --danger: 13 94% 57%;
 
+    --fs--2: clamp(0.7813rem, 0.7268rem + 0.2722vi, 0.9378rem);
+    --fs--1: clamp(0.9375rem, 0.8024rem + 0.6757vi, 1.326rem);
+    --fs-0: clamp(1.125rem, 0.8641rem + 1.3043vi, 1.875rem);
+    --fs-1: clamp(1.35rem, 0.8974rem + 2.263vi, 2.6513rem);
+    --fs-2: clamp(1.62rem, 0.8795rem + 3.7024vi, 3.7489rem);
+    --fs-3: clamp(1.944rem, 0.7764rem + 5.8381vi, 5.3009rem);
+    --fs-4: clamp(2.3328rem, 0.5371rem + 8.9786vi, 7.4955rem);
+    --fs-5: clamp(2.7994rem, 0.0866rem + 13.5639vi, 10.5986rem);
+
     --radius: 0.5rem;
+
+    --box-shadow-default: 0.25rem 0.25rem 0 0 currentColor;
   }
 
   /* .dark {
@@ -73,7 +84,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-accent-100 text-foreground p-2 min-h-dvh;
+    @apply bg-accent-100 text-base text-foreground p-2 min-h-dvh;
   }
   svg {
     @apply w-5;
@@ -82,12 +93,9 @@
 
 @layer utilities {
   .shadowed {
-    @apply relative;
+    @apply shadow-default;
   }
-  *:has(> .shadowed) {
-    @apply isolate;
-  }
-  .shadowed:before {
-    @apply block content-[''] w-full h-full bg-foreground absolute z-[-1] rounded-[inherit] top-1;
+  button.shadowed:active {
+    @apply translate-x-1 translate-y-1 shadow-none;
   }
 }

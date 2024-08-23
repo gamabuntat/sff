@@ -1,7 +1,7 @@
 export const getMenuItems = async () => {
   return [
     {
-      id: '1',
+      id: Math.round(Math.random() * 1e3),
       name: 'Бургер с говной',
       price: '123',
     },
