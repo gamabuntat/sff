@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { getMenuItems } from '@/app/actions/getMenuItems';
-import { Button } from '@/components/ui/button';
-import Heart from '@/assets/heart.svg';
+import { getMenuItems } from "@/app/actions/getMenuItems";
+import { Button } from "@/components/ui/button";
+
+import { Heart } from "@/assets/svg";
 
 export default function Home() {
   const [menuItems, setMenuItems] = useState<any>();
