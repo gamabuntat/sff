@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { getMenuItems, revalidateMenuItems } from '@/app/actions/getMenuItems';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import {Carousel} from '@/components/ui/carousel';
+import { Carousel } from '@/components/ui/carousel';
 
 import Heart from '@/assets/svg/heart.svg';
 
@@ -13,7 +13,7 @@ export default function Home() {
   const [menuItems, setMenuItems] = useState<unknown>();
 
   return (
-    <main className="content-grid gap-y-4">
+    <main className="gap-y-4 my-4 content-grid">
       <Button
         variant="secondary"
         size="lg"
@@ -25,7 +25,6 @@ export default function Home() {
       >
         RESET CACHE
       </Button>
-
       <div className="bg-gray-50 flex gap-4 flex-wrap justify-between witout-gap">
         <Button
           className="gap-1 shadowed flex-1"
@@ -46,10 +45,21 @@ export default function Home() {
           <a href="">Contact</a>
         </Button>
       </div>
-
       <div>{JSON.stringify(menuItems)}</div>
 
-      <Carousel />
+      <h2 className="text-2xl uppercase">snap normal</h2>
+      <Carousel className="full-bleed snap-normal">
+        <div className="bg-[tomato]">
+          Ipsum facere voluptatum at in adipisci nihil? Optio sint voluptates
+        </div>
+      </Carousel>
+
+      <h2 className="text-2xl uppercase">snap always</h2>
+      <Carousel className="full-bleed snap-always">
+        <div className="bg-[tomato]">
+          Ipsum facere voluptatum at in adipisci nihil? Optio sint voluptates
+        </div>
+      </Carousel>
 
       <Card asChild className="full-bleed content-grid">
         <section>
@@ -72,6 +82,8 @@ export default function Home() {
           id. Quas?
         </h2>
       </article>
+
+      <input type="date" />
     </main>
   );
 }

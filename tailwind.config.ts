@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'gradient-g': `repeating-linear-gradient(45deg, white, white 20px, lime 20px, lime 40px)`,
+        'gradient-gg': `repeating-linear-gradient(-45deg, white, white 20px, tomato 20px, tomato 40px)`,
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -64,7 +68,6 @@ const config = {
         '2xl': 'var(--fs-3)',
         '3xl': 'var(--fs-4)',
         '4xl': 'var(--fs-5)',
-
       },
       borderRadius: {
         lg: 'var(--radius)',
