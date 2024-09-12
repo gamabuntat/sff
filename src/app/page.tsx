@@ -5,19 +5,19 @@ import { useState } from 'react';
 import { getMenuItems, revalidateMenuItems } from '@/app/actions/getMenuItems';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import {Carousel} from '@/components/ui/carousel';
 
 import Heart from '@/assets/svg/heart.svg';
 
 export default function Home() {
   const [menuItems, setMenuItems] = useState<unknown>();
-  const [menuItems2, setMenuItems2] = useState<unknown>();
 
   return (
-    <>
+    <main className="content-grid gap-y-4">
       <Button
         variant="secondary"
         size="lg"
-        className="mb-2 shadowed"
+        className="mb-2 shadowed breakout"
         onClick={() => {
           console.log('revalidate...');
           revalidateMenuItems().then(() => console.log('revalidate finished'));
@@ -25,7 +25,8 @@ export default function Home() {
       >
         RESET CACHE
       </Button>
-      <div className="bg-gray-50 flex gap-4 flex-wrap justify-between">
+
+      <div className="bg-gray-50 flex gap-4 flex-wrap justify-between witout-gap">
         <Button
           className="gap-1 shadowed flex-1"
           onClick={async () => {
@@ -37,13 +38,7 @@ export default function Home() {
           <span>Love button</span>
         </Button>
         <Button disabled>hihe</Button>
-        <Button
-          // onClick={async () => {
-          //   const fetchedMenuItems = await getMenuItems();
-          //   setMenuItems2(fetchedMenuItems);
-          // }}
-          className="gap-1 flex-1"
-        >
+        <Button className="gap-1 flex-1">
           <span>fuck</span>
           <Heart className="w-em stroke-current fill-danger" />
         </Button>
@@ -52,22 +47,31 @@ export default function Home() {
         </Button>
       </div>
 
-      {JSON.stringify(menuItems)}
-      ---- ---- ----
-      {JSON.stringify(menuItems2)}
+      <div>{JSON.stringify(menuItems)}</div>
 
-      <Card>
-        Consectetur eos quas illo natus officiis porro. Dolorem ullam
-        praesentium laborum voluptas exercitationem consequatur sequi suscipit
-        cum! In similique provident quae incidunt sunt, voluptate Veniam
-        voluptatibus ab molestiae aliquam voluptatibus! Nihil modi
+      <Carousel />
+
+      <Card asChild className="full-bleed content-grid">
+        <section>
+          <h2 className="text-xl">
+            Elit porro molestias corporis magnam atque porro! Enim quibusdam
+            fuga aspernatur illum repellendus
+          </h2>
+          <p className="breakout">
+            Consectetur eos quas illo natus officiis porro. Dolorem ullam
+            praesentium laborum voluptas exercitationem consequatur sequi
+            suscipit cum! In similique provident quae incidunt sunt, voluptate
+            Veniam voluptatibus ab molestiae aliquam voluptatibus! Nihil modi
+          </p>
+        </section>
       </Card>
+
       <article>
         <h2 className="text-2xl font-bold">
           Sit laudantium consectetur voluptatum fugit facilis quaerat, facilis
           id. Quas?
         </h2>
       </article>
-    </>
+    </main>
   );
 }

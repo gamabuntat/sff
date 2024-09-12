@@ -1,4 +1,5 @@
 export const getMenuItems = () => {
+  console.count('call: getMenuItems');
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([

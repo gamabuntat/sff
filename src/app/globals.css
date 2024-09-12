@@ -84,7 +84,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-accent-100 text-base text-foreground p-2 min-h-dvh;
+    @apply bg-accent-100 text-base text-foreground min-h-dvh;
   }
   svg {
     @apply w-5;
@@ -98,4 +98,32 @@
   button.shadowed:active {
     @apply translate-x-1 translate-y-1 shadow-none;
   }
+}
+
+.content-grid {
+  --gap: 1rem;
+
+  --breakout-size: minmax(0, 7rem);
+  --content-size: min(65ch, calc(100% - var(--gap) * 2));
+
+  display: grid;
+  grid-template-columns:
+    [full-bleed-start] 1fr [witout-gap-start] var(--gap) [breakout-start] var(
+      --breakout-size
+    )
+    [content-start] var(--content-size)
+    [content-end] var(--breakout-size)
+    [breakout-end] var(--gap) [witout-gap-end] 1fr [full-bleed-end];
+}
+.content-grid > * {
+  grid-column: content;
+}
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+.content-grid > .witout-gap {
+  grid-column: witout-gap;
+}
+.content-grid > .full-bleed {
+  grid-column: full-bleed;
 }
